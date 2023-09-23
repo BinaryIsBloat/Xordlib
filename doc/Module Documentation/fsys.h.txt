@@ -1,0 +1,212 @@
+Library Header: xordlib/fsys.h
+
+Description: File system & IO functions
+
+Functions:
+		xord_fsys_ch_dir():
+			Parameters:
+				[In] Directory: XORD_BYTEA *
+
+			Return type: XORD_ERRNO
+			Description:
+				Change the current working directory to the value specified by the Directory
+				parameter.
+
+				If the function is unable to change to the specified directory, the return value
+				is non-zero and more information about the error can be obtained using xord_err_explain().
+
+				If the function returns an XORD_ERR_OS-code, additional information may be obtained using
+				the xord_err_os_get_last() and the xord_err_os_explain()-functions.
+
+		xord_fsys_ch_link():
+			Parameters:
+				[In] Link: XORD_BYTEA *
+
+			Return type: XORD_ERRNO
+			Description:
+				Follow a symbolic link located at the path specified by the Link parameter, which must point to
+				a directory.
+
+				If the link is invalid or does not point to a directory, the return value is non-zero
+				and more information about the error can be obtained using xord_err_explain().
+
+		xord_fsys_ch_own():
+			Parameters:
+				[In] FilePath: XORD_BYTEA *
+				[In] UserHandle: XORD_HDNL
+				[In] GroupHandle: XORD_HDNL
+
+			Return type: XORD_ERRNO
+			Description:
+
+
+		xord_fsys_ch_acls():
+			[...]
+
+		xord_fsys_ch_attr():
+			[...]
+
+		xord_fsys_get_cwd():
+			[...]
+
+		xord_fsys_get_link():
+			[...]
+
+		xord_fsys_get_own():
+			[...]
+
+		xord_fsys_get_acls():
+			[...]
+
+		xord_fsys_get_attr():
+			[...]
+
+		xord_fsys_get_fsize():
+			[...]
+
+		xord_fsys_get_inode():
+			[...]
+
+		xord_fsys_drive_list():
+			[...]
+
+		xord_fsys_drive_get_info():
+			[...]
+
+		xord_fsys_drive_get_filesys():
+			[...]
+
+		xord_fsys_drive_get_stats():
+			[...]
+
+		xord_fsys_location_get_home_dir():
+			[...]
+
+		xord_fsys_location_get_home_drive():
+			[...]
+
+		xord_fsys_location_get_temp_dir():
+			[...]
+
+		xord_fsys_location_get_bin_dir():
+			[...]
+
+		xord_fsys_location_get_sys_dir():
+			[...]
+
+		xord_fsys_location_get_null_dev():
+			[...]
+
+		xord_fsys_mk_dir():
+			[...]
+
+		xord_fsys_mk_file():
+			[...]
+
+		xord_fsys_mk_link():
+			[...]
+
+		xord_fsys_rm_dir():
+			[...]
+
+		xord_fsys_rm_file():
+			[...]
+
+		xord_fsys_mv_dir():
+			[...]
+
+		xord_fsys_mv_file():
+			[...]
+
+		xord_fsys_cp_dir():
+			[...]
+
+		xord_fsys_cp_file():
+			[...]
+
+		xord_fsys_open_file():
+			[...]
+
+		xord_fsys_open_dir():
+			[...]
+
+		xord_fsys_ntfs_altstream_open():
+			[...]
+
+		xord_fsys_ntfs_altstream_list():
+			[...]
+
+		xord_fsys_list_dir():
+			[...]
+
+		xord_fsys_fd_open():
+			[...]
+
+		xord_fsys_fd_close():
+			[...]
+
+		xord_fsys_fd_flush():
+			[...]
+
+		xord_fsys_fd_seek():
+			[...]
+
+		xord_fsys_fd_tell():
+			[...]
+
+		xord_fsys_fd_trunc():
+			[...]
+
+		xord_fsys_fd_read():
+			[...]
+
+		xord_fsys_fd_write():
+			[...]
+
+		xord_fsys_fd_delete():
+			[...]
+
+		xord_fsys_fd_get_attr():
+			[...]
+
+		xord_fsys_fd_get_info():
+			[...]
+
+		xord_fsys_fd_get_path():
+			[...]
+
+		xord_fsys_path_normalize():
+			[...]
+
+		xord_fsys_path_resolve():
+			[...]
+
+		xord_fsys_path_unix():
+			[...]
+
+		xord_fsys_path_win32():
+			[...]
+
+		xord_fsys_path_win32_unc():
+			[...]
+
+		xord_fsys_path_file_uri():
+			[...]
+
+		xord_fsys_path_exists():
+			[...]
+
+		xord_fsys_path_extract_file():
+			[...]
+
+		xord_fsys_path_extract_file_ext():
+			[...]
+
+		xord_fsys_path_extract_file_name():
+			[...]
+
+		xord_fsys_path_extract_dir_prefix():
+			[...]
+
+		xord_fsys_path_extract_drive():
+			[...]

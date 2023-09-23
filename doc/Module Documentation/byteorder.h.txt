@@ -1,0 +1,31 @@
+Library Header: xordlib/byteorder.h
+
+Description: Byte order conversion
+
+Functions:
+		xord_byteorder_swap_16():
+			[...]
+
+		xord_byteorder_swap_32():
+			[...]
+
+		xord_byteorder_swap_64():
+			[...]
+
+		xord_byteorder_swap_lil_16():
+			[...]
+
+		xord_byteorder_swap_lil_32():
+			[...]
+
+		xord_byteorder_swap_lil_64():
+			[...]
+
+		xord_byteorder_swap_big_16():
+			[...]
+
+		xord_byteorder_swap_big_32():
+			[...]
+
+		xord_byteorder_swap_big_64():
+			[...]

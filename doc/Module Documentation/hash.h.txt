@@ -1,0 +1,34 @@
+Library Header: xordlib/hash.h
+
+Description: Hash algorithm implementations
+
+Functions:
+		xord_hash_algorithm_xor_plus_shift():
+			[...]
+
+		xord_hash_algorithm_lose_lose():
+			[...]
+
+		xord_hash_algorithm_add_plus_shift():
+			[...]
+
+		xord_hash_algorithm_djb2():
+			[...]
+
+		xord_hash_algorithm_sha1():
+			[...]
+
+		xord_hash_algorithm_sha256():
+			[...]
+
+		xord_hash_algorithm_sha512():
+			[...]
+
+		xord_hash_algorithm_sha3_256():
+			[...]
+
+		xord_hash_algorithm_sha3_512():
+			[...]
+
+		xord_hash_algorithm_md5():
+			[...]

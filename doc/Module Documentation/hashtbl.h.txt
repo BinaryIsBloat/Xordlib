@@ -1,0 +1,146 @@
+Library Header: xordlib/hashtbl.h
+
+Description: Hash table management
+
+Functions:
+		xord_hashtbl_alloc():
+			Parameters:
+				[Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+				[In] Buckets: XORD_SIZE
+
+			Return type: XORD_ERRNO
+			Description:
+				Allocate a new hash table structure which uses the hashing algorithm pointed to by the HashFunction parameter,
+				which follows the standard hash function specification present in the hash module of the library.
+
+				The Buckets parameter defines how many buckets should initially be allocated to the table structure. The higher
+				the value, the more efficient the table will be, but the more costly the table will be memory-wise. Because
+				reallocations are way more costly due to the need to reorganize the entire table, it is recommended to allocate
+				a moderate amount of buckets to the structure which is unlikely to be quickly exhausted.
+
+				It is also possible to implement custom hash functions specifically altered to your needs, as long as they follow
+				the implementation standard.
+
+		xord_hashtbl_realloc():
+			Parameters:
+				[In, Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+				[In] Buckets: XORD_SIZE
+
+			Return type: XORD_ERRNO
+			Description:
+				Reallocate an existing hash table. The HashTable parameter must point to the hash table structure that will be reallocated.
+				The HashFunction parameter is optional, and if not initialized to NULL, must point to a valid hash function following the
+				implementation standard. The Buckets parameter defines the new size of the buckets allocated to the table structure.
+
+				Due to the way this function works, it is very costly to use and should only be made use of rarely. All buckets have to first
+				be extracted and stored in a stripped-down implementation of the XORD_DICT structure. After that operation is complete, an
+				attempt is made to reallocate the buffer of the table structure to reflect the new bucket size. Should this succeed, every
+				item of the dictionary has to be fully rehashed and put back into place in the table structure. Depending on the previous
+				size of the table, this can be very expensive both time- and memory-wise.
+
+				The hash table is kept intact until the reallocation attempt is made, therefore it should not be required to back up the structure
+				beforehand. That is no guarantee, however, and depending on the sensitivity of the data, a backup should be considered before any
+				reallocation of the hash table in order to prevent data loss or corruption.
+
+		xord_hashtbl_dealloc():
+			Parameters:
+				[In] HashTable: XORD_HASHTBL *
+
+			Return type: XORD_ERRNO
+			Description:
+				Deallocate an existing hash table pointed to by the HashTable parameter. All buckets are freed without exception, thus you need
+				to make sure to duplicate any data you want to retain before the deallocation. You should also make sure that all pointers in the
+				buckets are valid, or elsewise this function might segfault unexpectedly.
+
+		xord_hashtbl_from_linklist():
+			Parameters:
+				[Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+				[In] Buckets: XORD_SIZE
+				[In] LinkedList: XORD_LINKLIST *
+
+			Return type: XORD_ERRNO
+			Description:
+				Allocate a new hash table structure and populate it with the values in the linked list. The three parameters HashTable, HashFunction and
+				Buckets are passed unmodified to the xord_hashtbl_alloc() function and it is the responsibility of the developer to ensure that all of
+				them are valid.
+
+				If the allocation of the new hash table was successfull, the function continues to iterate over each value in the linked list pointed to
+				by the LinkedList parameter and inserts it into the table structure.
+
+		xord_hashtbl_from_linklist_dual():
+			Parameters:
+				[Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+				[In] Buckets: XORD_SIZE
+				[In] DuallyLinkedList: XORD_LINKLIST_DUAL *
+
+			Return type: XORD_ERRNO
+			Description:
+				Allocate a new hash table structure and populate it with the values in the dually linked list. The three parameters HashTable, HashFunction and
+				Buckets are passed unmodified to the xord_hashtbl_alloc() function and it is the responsibility of the developer to ensure that all of
+				them are valid.
+
+				If the allocation of the new hash table was successfull, the function continues to iterate over each value in the dually linked list pointed to
+				by the DuallyLinkedList parameter and inserts it into the table structure. Note that the function only reads from left to right, thus it is your
+				responsibility to ensure that the parameter points to the very first chain in the dually linked list. Should that not be the case, all chains to
+				the left are ignored by the function.
+
+		xord_hashtbl_from_dict():
+			Parameters:
+				[Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+				[In] Buckets: XORD_SIZE
+				[In] Dictionary: XORD_DICT *
+
+			Return type: XORD_ERRNO
+			Description:
+				Allocate a new hash table structure and populate it with the values in the dictionary. The three parameters HashTable, HashFunction and
+				Buckets are passed unmodified to the xord_hashtbl_alloc() function and it is the responsibility of the developer to ensure that all of
+				them are valid.
+
+				If the allocation of the new hash table was successfull, the function continues to iterate over each value in the dictionary structure pointed to
+				by the Dictionary parameter and inserts it into the table structure.
+
+		xord_hashtbl_get_stats():
+			Parameters:
+				[In] HashTable: XORD_HASHTBL *
+				[Out] Statistics: XORD_HASHTBL_STATS *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieve memory and load statistics from the hash table pointed to by the HashTable parameter. The information is written to the Statistics
+				parameter, which is a special data structure containing different members describing different statistical data. The structure is accessed
+				directly by the user, thus no special functions for this structure are defined.
+
+		xord_hashtbl_update_hash_funct():
+			Parameters:
+				[In, Out] HashTable: XORD_HASHTBL *
+				[In] HashFunction: XORD_ERRNO (*)(XORD_BYTEA, XORD_U64 *)
+
+			Return type: XORD_ERRNO
+			Description:
+				Update the hash function associated with the hash table pointed to by HashTable. If the hash function is the same as previously, this is a
+				no-op, as nothing is actually changed.
+
+				If the hash function specified by the HashFunction parameter is different from the previously associated function, all buckets are extracted
+				into a stripped-down dictionary implementation, and subsequently rehashed with the new hash function and inserted back into the hash table.
+				Because this has simmilar performance caveats to the xord_hashtbl_realloc() function, it is recommended to only use this function rarely as well.
+
+		xord_hashtbl_bucket_key_insert():
+			Parameters:
+				[In, Out] HashTable: XORD_HASHTBL *
+				[In] Key: XORD_BYTEA *
+				[In] Value: XORD_PTR
+
+			Return type: XORD_ERRNO
+			Description:
+				[...]
+
+		xord_hashtbl_bucket_key_fetch():
+			[...]
+
+		xord_hashtbl_bucket_key_purge():
+			[...]

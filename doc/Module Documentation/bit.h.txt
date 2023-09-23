@@ -1,0 +1,22 @@
+Library Header: xordlib/bit.h
+
+Description: Bitwise operations
+
+Functions:
+		xord_bit_get():
+			[...]
+
+		xord_bit_set():
+			[...]
+
+		xord_bit_reset():
+			[...]
+
+		xord_bit_flip():
+			[...]
+
+		xord_bit_lshift_circular():
+			[...]
+
+		xord_bit_rshift_circular():
+			[...]

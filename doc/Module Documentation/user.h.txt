@@ -1,0 +1,98 @@
+Library Header: xorlib/user.h
+
+Description: System user & group management
+
+Functions:
+		xord_user_get_usr():
+			Parameters:
+				[Out] UserHandle: XORD_HNDL *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieves a handle to the user who initially started the process and writes the handle to UserHandle.
+
+				In case the function fails to get a handle to the user, the return value is non-zero.
+
+		xord_user_get_usr_info():
+			Parameters:
+				[In] UserHandle: XORD_HNDL
+				[Out] UserInfoObject: XORD_USER_INFO *
+
+			Return type: XORD_ERRNO
+
+		xord_user_get_gp_info():
+			Parameters:
+				[In] GroupHandle: XORD_HNDL
+				[Out] GroupInfoObject: XORD_GROUP_INFO *
+
+			Return type: XORD_ERRNO
+
+		xord_user_list_usr():
+			Parameters:
+				[Out] UserHandles: XORD_HNDL **
+				[Out] HandleCount: XORD_U32 *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieves all users that are registered on the host system.
+
+				Parameter description:
+					o  UserHandles contains the retrieved users.
+
+					o  HandleCount is set to the size of the handle list.
+
+				After the handle list is no longer used, it should be deallocated using the free() method.
+
+		xord_user_list_usr_gp():
+			Parameters:
+				[In] UserHandle: XORD_HNDL
+				[Out] GroupHandles: XORD_HNDL **
+				[Out] HandleCount: XORD_U32 *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieves all groups associated with a specific user on the system.
+
+				Parameter description:
+					o  UserHandle is a handle to the system user that the function should get the groups from.
+
+					o  GroupHandles contains the handles to the retrieved groups.
+
+					o  HandleCount is set to the size of the handle list.
+
+				After the handle list is no longer used, it should be deallocated using the free() method.
+
+		xord_user_list_gp():
+			Parameters:
+				[Out] GroupHandles: XORD_HNDL **
+				[Out] HandleCount: XORD_U32 *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieves all groups that are registered on the host system.
+
+				Parameter description:
+					o  GroupHandles contains the retrieved groups.
+
+					o  HandleCount is set to the size of the handle list.
+
+				After the handle list is no longer used, it should be deallocated using the free() method.
+
+		xord_user_list_gp_members():
+			Parameters:
+				[In] GroupHandle: XORD_HNDL
+				[Out] UserHandles: XORD_HNDL **
+				[Out] HandleCount: XORD_U32 *
+
+			Return type: XORD_ERRNO
+			Description:
+				Retrieves all members of a specific group on the system.
+
+				Parameter description:
+					o  GroupHandle is a handle to the system group that the function should get the members from.
+
+					o  UserHandles contains the handles to the retrieved users.
+
+					o  HandleCount is set to the size of the handle list.
+
+				After the handle list is no longer used, it should be deallocated using the free() method.

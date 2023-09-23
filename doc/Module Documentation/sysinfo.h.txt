@@ -1,0 +1,81 @@
+Library Header: xordlib/sysinfo.h
+
+Description: Various system information
+
+Functions:
+		xord_sysinfo_get_byteorder():
+			Parameters: None
+			Return type: XORD_ENDIAN
+			Description:
+				Returns the native byte order on the system.
+				Possible values are:
+					XORD_ENDIAN_LIL (= 0)
+					XORD_ENDIAN_BIG (= 1)
+
+		xord_sysinfo_get_bytesize():
+			Parameters: None
+			Return type: XORD_INT
+			Description:
+				Returns the size in bit that is used to represent one byte on the system.
+
+				Possible values may include any number above or equal to 8, which is the
+				minimum byte size as required by the C standard.
+
+		xord_sysinfo_get_osstr():
+			Parameters:
+				[Out] OSString: XORD_BYTEA *
+
+			Return type: XORD_ERRNO
+			Description:
+				Sets the value of OSString to a textual representation of the host Operating System
+				family.
+
+				Any of the following strings may be returned by the function:
+					Unix
+					WIN32
+					macOS
+					BSD
+					Haiku
+
+				These values may be updated to reflect new Operating Systems being added to the
+				library code.
+
+				If the function is unable to determine the host Operating System, the return value
+				is non-zero and more information about the error can be obtained using xord_err_explain().
+
+				This function is designed to yield human-readable results. For a more efficient, machine-readable
+				alternative, see xord_sysinfo_get_os(), which is the underlying method used by this function.
+
+		xord_sysinfo_get_os():
+			Parameters:
+				[Out] OSIdentifier: XORD_SYSINFO_OS_IDENTIFIER *
+
+			Return type: XORD_ERRNO
+
+		xord_sysinfo_get_cpustr():
+			Parameters:
+				[Out] CPUString: XORD_BYTEA *
+
+			Return type: XORD_ERRNO
+			Description:
+				Sets the value of CPUString to a textual representation of the host processor architecture.
+
+				Any of the following strings may be returned by the function:
+					AMD64 (default)
+					x86
+					MIPS
+					ARM
+
+				These values may be updated to reflect new CPU architectures being added to the library code.
+
+				If the function is unable to determine the host CPU, the return value is non-zero and more
+				information about the error can be obtained using xord_err_explain().
+
+		xord_sysinfo_get_cpu():
+			Parameters:
+				[Out] CPUIdentifier: XORD_SYSINFO_CPU_IDENTIFIER *
+
+			Return type: XORD_ERRNO
+
+		xord_sysinfo_get_locale():
+			[...]

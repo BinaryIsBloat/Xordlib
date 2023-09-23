@@ -1,0 +1,67 @@
+Library Header: xordlib/term.h
+
+Description: Terminal access & TUI functions
+
+Functions:
+		xord_term_ch_mode():
+			[...]
+
+		xord_term_get_mode():
+			[...]
+
+		xord_term_get_size():
+			[...]
+
+		xord_term_get_cursor():
+			[...]
+
+		xord_term_get_encoding():
+			[...]
+
+		xord_term_get_default_encoding():
+			[...]
+
+		xord_term_fd():
+			[...]
+
+		xord_term_get_chr():
+			[...]
+
+		xord_term_get_line():
+			[...]
+
+		xord_term_is_color_terminal():
+			[...]
+
+		xord_term_is_unicode_terminal():
+			[...]
+
+		xord_term_print_color():
+			[...]
+
+		xord_term_print_raw():
+			[...]
+
+		xord_term_print_normal():
+			[...]
+
+		xord_term_clear():
+			[...]
+
+		xord_term_refresh():
+			[...]
+
+		xord_term_set_cursor():
+			[...]
+
+		xord_term_set_encoding():
+			[...]
+
+		xord_term_set_encoding_utf8():
+			[...]
+
+		xord_term_ui_render_box():
+			[...]
+
+		xord_term_ui_render_window():
+			[...]

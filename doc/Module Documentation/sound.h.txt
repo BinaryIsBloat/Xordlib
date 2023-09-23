@@ -1,0 +1,7 @@
+Library Header: xordlib/sound.h
+
+Description: Sound device access functions
+
+Functions:
+		xord_sound_play():
+			[...]

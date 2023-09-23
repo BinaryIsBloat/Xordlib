@@ -1,0 +1,25 @@
+Library Header: xordlib/err.h
+
+Description: Error handling functions
+
+Functions:
+		xord_err_explain():
+			[...]
+
+		xord_err_set_last():
+			[...]
+
+		xord_err_get_last():
+			[...]
+
+		xord_err_os_explain():
+			[...]
+
+		xord_err_os_set_last():
+			[...]
+
+		xord_err_os_get_last():
+			[...]
+
+		xord_err_is_bool():
+			[...]

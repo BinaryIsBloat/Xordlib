@@ -1,0 +1,64 @@
+Library Header: xordlib/win.h
+
+Description: Window management
+
+Functions:
+		xord_win_alloc():
+			[...]
+
+		xord_win_ch_mode():
+			[...]
+
+		xord_win_ch_size():
+			[...]
+
+		xord_win_ch_position():
+			[...]
+
+		xord_win_ch_icon():
+			[...]
+
+		xord_win_get_screen():
+			[...]
+
+		xord_win_get_mouse():
+			[...]
+
+		xord_win_get_event_keyboard():
+			[...]
+
+		xord_win_get_event_mouse():
+			[...]
+
+		xord_win_get_event():
+			[...]
+
+		xord_win_get_size():
+			[...]
+
+		xord_win_get_position():
+			[...]
+
+		xord_win_set_mouse():
+			[...]
+
+		xord_win_simulate_event_keyboard():
+			[...]
+
+		xord_win_simulate_event_mouse():
+			[...]
+
+		xord_win_redraw():
+			[...]
+
+		xord_win_canvas_draw():
+			[...]
+
+		xord_win_canvas_fill():
+			[...]
+
+		xord_win_canvas_ch_offset():
+			[...]
+
+		xord_win_canvas_get_offset():
+			[...]

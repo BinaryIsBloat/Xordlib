@@ -1,0 +1,76 @@
+Library Header: xordlib/bytea.h
+
+Description: Bytearray allocation & conversion
+
+Functions:
+		xord_bytea_alloc():
+			[...]
+
+		xord_bytea_duplicate():
+			[...]
+
+		xord_bytea_realloc():
+			[...]
+
+		xord_bytea_realloc_chunk():
+			[...]
+
+		xord_bytea_truncate():
+			[...]
+
+		xord_bytea_dealloc():
+			[...]
+
+		xord_bytea_from_string_mutable():
+			[...]
+
+		xord_bytea_from_string():
+			[...]
+
+		xord_bytea_from_bytes_mutable():
+			[...]
+
+		xord_bytea_from_bytes():
+			[...]
+
+		xord_bytea_extract_range():
+			[...]
+
+		xord_bytea_concat():
+			[...]
+
+		xord_bytea_merge():
+			[...]
+
+		xord_bytea_extend():
+			[...]
+
+		xord_bytea_insert():
+			[...]
+
+		xord_bytea_mutate_to_upper():
+			[...]
+
+		xord_bytea_mutate_to_lower():
+			[...]
+
+		xord_bytea_mutate_to_capital():
+			[...]
+
+		xord_bytea_mutate_to_inverse_capital():
+			[...]
+
+		xord_bytea_mutate_to_mirrored():
+			[...]
+
+		xord_bytea_mutate_to_rotated():
+			[...]
+
+		xord_bytea_compare():
+			[...]
+
+		xord_bytea_compare_range():
+			[...]
+
+		xord_bytea_compare_ranges():
+			[...]

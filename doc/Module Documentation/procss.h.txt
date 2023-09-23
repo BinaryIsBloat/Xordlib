@@ -1,0 +1,25 @@
+Library Header: xordlib/procss.h
+
+Description: Process management
+
+Functions:
+		xord_procss_get_procss():
+			[...]
+
+		xord_procss_get_procss_info():
+			[...]
+
+		xord_procss_list_procss():
+			[...]
+
+		xord_procss_kill():
+			[...]
+
+		xord_procss_spawn():
+			[...]
+
+		xord_procss_exec():
+			[...]
+
+		xord_procss_fork():
+			[...]

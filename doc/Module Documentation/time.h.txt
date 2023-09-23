@@ -1,0 +1,41 @@
+Library Header: xordlib/time.h
+
+Description: Date & time functions
+
+Functions:
+		xord_time_get_unix_time():
+			[...]
+
+		xord_time_get_unix_time_ns():
+			[...]
+
+		xord_time_get_utc_time():
+			[...]
+
+		xord_time_get_local_time():
+			[...]
+
+		xord_time_get_timezone_info():
+			[...]
+
+		xord_time_get_epoch():
+			[...]
+
+		xord_time_format_string():
+			[...]
+
+		xord_time_format_string_http():
+			[...]
+
+		xord_time_format_string_iso():
+			[...]
+
+		xord_time_convert_from_string():
+			[...]
+
+		xord_time_convert_from_string_http():
+			[...]
+
+		xord_time_convert_from_string_iso():
+			[...]
+

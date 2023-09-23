@@ -1,0 +1,34 @@
+Library Header: xordlib/byte.h
+
+Description: Byte conversion & token comparisons
+
+Functions:
+		xord_byte_is_upper():
+			[...]
+
+		xord_byte_is_lower():
+			[...]
+
+		xord_byte_is_ascii():
+			[...]
+
+		xord_byte_is_alpha():
+			[...]
+
+		xord_byte_is_numeric():
+			[...]
+
+		xord_byte_is_alphanum():
+			[...]
+
+		xord_byte_is_space():
+			[...]
+
+		xord_byte_is_newline():
+			[...]
+
+		xord_byte_is_wspace():
+			[...]
+
+		xord_byte_is_ctrlchar():
+			[...]

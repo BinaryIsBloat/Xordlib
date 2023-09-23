@@ -1,0 +1,34 @@
+Library Header: xordlib/sock.h
+
+Description: Socket management
+
+Functions:
+		xord_sock_open():
+			[...]
+
+		xord_sock_close():
+			[...]
+
+		xord_sock_connect():
+			[...]
+
+		xord_sock_write():
+			[...]
+
+		xord_sock_read():
+			[...]
+
+		xord_sock_bind():
+			[...]
+
+		xord_sock_accept():
+			[...]
+
+		xord_sock_listen():
+			[...]
+
+		xord_sock_is_alive():
+			[...]
+
+		xord_sock_get_address():
+			[...]

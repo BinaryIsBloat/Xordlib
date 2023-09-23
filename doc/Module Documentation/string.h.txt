@@ -1,0 +1,19 @@
+Library Header: xordlib/string.h
+
+Description: String conversion functions
+
+Functions:
+		xord_string_alloc():
+			[...]
+
+		xord_string_realloc():
+			[...]
+
+		xord_string_dealloc():
+			[...]
+
+		xord_string_from_bytea():
+			[...]
+
+		xord_string_get_length():
+			[...]

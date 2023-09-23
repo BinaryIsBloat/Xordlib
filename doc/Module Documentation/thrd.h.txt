@@ -1,0 +1,31 @@
+Library Header: xordlib/thrd.h
+
+Description: Multi-threading support
+
+Functions:
+		xord_thrd_new():
+			[...]
+
+		xord_thrd_join():
+			[...]
+
+		xord_thrd_alloc_mem_local():
+			[...]
+
+		xord_thrd_realloc_mem_local():
+			[...]
+
+		xord_thrd_dealloc_mem_local():
+			[...]
+
+		xord_thrd_mem_lock_acquire():
+			[...]
+
+		xord_thrd_mem_lock_release():
+			[...]
+
+		xord_thrd_get_running_threads():
+			[...]
+
+		xord_thrd_get_current_thread():
+			[...]
